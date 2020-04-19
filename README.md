@@ -220,18 +220,7 @@ class MyCustomForm extends CustomForm{
 		
 		$this->addEntry(new LabelEntry("Are you sure you'd like to commit /suicide? You will lose all your inventory contents."));
 		$this->addEntry(new LabelEntry("Type " . TextFormat::BOLD . "YES" . TextFormat::RESET . "below to confirm!");
-		
-		
-		$this->addEntry(
-			new InputEntry("", "Type YES here"),
-			function(Player $player, InputEntry $entry, string $value) : void{
-				if($value === "YES"){
-					$player->getServer()->dispatchCommand($player, "kill");
-				}else{
-					$player->sendMessage("Suicide aborted.");
-				}
-			}
-		);
+		$this->addEntry(new InputEntry("", "Type YES here"));
 	}
 	
 	public function onSubmit(Player $player, array $array) : void{
