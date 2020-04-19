@@ -240,9 +240,10 @@ class MyCustomForm extends CustomForm{
 	    if(is_string($value)){
 	        if($value === "YES"){
 	            $player->getServer()->dispatchCommand($player, "kill");
-			}else{
-					$player->sendMessage("Suicide aborted.");
-			}
+		}
+                else{
+		    $player->sendMessage("Suicide aborted.");
+		}
 	    }
 	}
 	
