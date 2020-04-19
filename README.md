@@ -153,10 +153,12 @@ These forms don't contain buttons. As of now, there are 6 types of entries you c
 The closest alternative to buttons. Dropdowns let players select an option from a list of options.
 ```php
 $entry = new DropdownEntry(
-	"What's your gender?", // the first parameter is the name of the dropdown
-	"Male", // the next parameters are the dropdown options
-	"Female",
-	"Prefer not to answer"
+	"What's your gender?", // the first paramater is the title
+	[
+	    "Male", // the next parameters are the dropdown options
+	    "Female",
+	    "Prefer not to answer"
+	]
 );
 $entry->setDefault("Prefer not to answer");
 ```
@@ -168,7 +170,7 @@ Lets players input a string. Also can be useful in making shit confirmatory prom
 //  * Name of the input option
 //  * Placeholder (displayed in grey) [optional]
 //  * Default (fallback value if nothing entered) [optional]
-$entry = new InputEntry("Enter your name", "Sbeve");
+$entry = new InputEntry("Enter your name", "Steve");
 ```
 
 #### 3. Label
@@ -194,9 +196,11 @@ Resemble sliders, but their value is a string.
 ```php
 $entry = new StepSlider(
 	"Brain size", // <- title
-	"Small", // <- the next parameters are steps in order
-	"Medium",
-	"Large"
+	[ // The next parameter is steps
+	    "Small",
+	    "Medium",
+	    "Large"
+	]
 );
 $entry->setDefault("Medium");
 ```
@@ -228,6 +232,18 @@ class MyCustomForm extends CustomForm{
 				}
 			}
 		);
+	}
+	
+	public function onSubmit(Player $player, array $array) : void{
+	    $value = $array[0];
+	    
+	    if(is_string($value)){
+	        if($value === "YES"){
+	            $player->getServer()->dispatchCommand($player, "kill");
+			}else{
+					$player->sendMessage("Suicide aborted.");
+			}
+	    }
 	}
 	
 	public function onClose(Player $player) : void{
