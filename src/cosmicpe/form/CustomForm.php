@@ -6,11 +6,10 @@ namespace cosmicpe\form;
 
 use Closure;
 use cosmicpe\form\entries\custom\CustomFormEntry;
-use cosmicpe\form\entries\ModifyableEntry;
 use cosmicpe\form\types\Icon;
 use Exception;
 use pocketmine\form\FormValidationException;
-use pocketmine\Player;
+use pocketmine\player\Player;
 
 abstract class CustomForm implements Form{
 

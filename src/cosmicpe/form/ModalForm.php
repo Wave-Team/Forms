@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace cosmicpe\form;
 
-use pocketmine\Player;
+use pocketmine\player\Player;
 
 abstract class ModalForm implements Form{
 
@@ -33,7 +33,7 @@ abstract class ModalForm implements Form{
 		$this->second_button = $button;
 	}
 
-	public function handleResponse(Player $player, $data) : void{
+	public function handleResponse(Player $player, $data) : void {
 		if(!$data){
 			$this->onClose($player);
 			return;

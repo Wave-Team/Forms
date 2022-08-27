@@ -8,8 +8,7 @@ use Closure;
 use cosmicpe\form\entries\simple\Button;
 use Exception;
 use pocketmine\form\FormValidationException;
-//use pocketmine\player\Player;
-use pocketmine\Player;
+use pocketmine\player\Player;
 
 abstract class SimpleForm implements Form{
 

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace cosmicpe\form;
 
 use cosmicpe\form\entries\simple\Button;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\utils\TextFormat;
 
 abstract class PaginatedForm extends SimpleForm{
